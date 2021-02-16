@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">AlSAdmin</string>
+    <string name="alittleshareadminPanel">AlittleShare Admin Panel</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="event">Event</string>
+    <string name="organization">Organization</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="emptyEventFound">No Event has been found</string>
+    <string name="emptyOrganizationFound">No Organization has been found</string>
+    <string name="year">Year</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="title">Title</string>
+    <string name="status">Status</string>
+    <string name="view">View</string>
+    <string name="percent">per%</string>
+    <string name="title_activity_event_view">EventViewActivity</string>
+    <string name="currentFund">CurrentFund</string>
+    <string name="targetFund">TargetFund</string>
+    <string name="createdDateTime">Created Date Time</string>
+    <string name="duration">Duration</string>
+    <string name="description">Description</string>
+    <string name="personInCharge">Person In Charge</string>
+    <string name="progress">Progress</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="name">Name</string>
+    <string name="registerDateTime">Register Date Time</string>
+    <string name="type">Type</string>
+    <string name="registrationNumber">Registration Number</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="verify">Verify</string>
+    <string name="other">Others</string>
+    <string name="createAdmin">Create Admin</string>
+
+</resources>

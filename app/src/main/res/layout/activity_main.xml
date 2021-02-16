@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivityContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainToolbarView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboard"
+                android:textSize="23sp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="1">
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:text="@string/event"
+                    android:backgroundTint="#ff9382"
+                    android:drawableTop="@drawable/ic_baseline_event_note_24"
+                    android:drawableTint="@color/white"
+                    android:onClick="startEventPage"/>
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:text="@string/organization"
+                    android:backgroundTint="#ffb382"
+                    android:drawableTop="@drawable/ic_baseline_business_24"
+                    android:drawableTint="@color/white"
+                    android:onClick="startOrganizationPage"/>
+
+
+
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/other"
+                android:textSize="23sp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:text="@string/createAdmin"
+                android:backgroundTint="#fe8a00"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableTint="@color/white"
+                android:textAlignment="viewStart"
+                android:onClick="startCreateAdminPage"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:text="@string/logout"
+                android:backgroundTint="@color/red"
+                android:drawableLeft="@drawable/ic_baseline_exit_to_app_24"
+                android:drawableTint="@color/white"
+                android:textAlignment="viewStart"
+                android:onClick="logOut"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/mainToolbarView"
+        layout="@layout/customize_toolbar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
