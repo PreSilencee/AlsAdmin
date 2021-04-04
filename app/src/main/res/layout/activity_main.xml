@@ -61,6 +61,19 @@
                     android:drawableTint="@color/white"
                     android:onClick="startOrganizationPage"/>
 
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:text="@string/donation"
+                    android:backgroundTint="@color/purple_200"
+                    android:drawableTop="@drawable/ic_round_payments_24"
+                    android:drawableTint="@color/white"
+                    android:onClick="startDonationPage"/>
+
 
 
 

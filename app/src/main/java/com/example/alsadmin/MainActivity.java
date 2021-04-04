@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.alsadmin.object.Management;
+import com.example.alsadmin.ui.donation.DonationListActivity;
 import com.example.alsadmin.ui.event.EventActivity;
 import com.example.alsadmin.ui.event.EventViewActivity;
 import com.example.alsadmin.ui.organization.OrganizationActivity;
@@ -155,5 +156,9 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.setTitle("Confirmation");
         alert.show();
+    }
+
+    public void startDonationPage(View view) {
+        startActivity(new Intent(getApplicationContext(), DonationListActivity.class));
     }
 }

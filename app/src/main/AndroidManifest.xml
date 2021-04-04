@@ -4,15 +4,20 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/alslogo"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/alslogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlsAdmin2">
-        <activity android:name=".CreateAdminActivity"></activity>
+        <activity android:name=".ui.donation.DonationDetailsActivity"/>
+        <activity android:name=".ui.donation.DonationListActivity" />
+        <activity android:name=".CreateAdminActivity" />
         <activity android:name=".ui.organization.OrganizationViewActivity" />
         <activity android:name=".ui.organization.OrganizationActivity" />
         <activity android:name=".ui.event.EventViewActivity" />

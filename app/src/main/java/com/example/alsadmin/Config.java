@@ -19,6 +19,9 @@ public class Config {
     public static final DatabaseReference CONTRIBUTOR_REF = FirebaseDatabase.getInstance().getReference().child("contributor");
     public static final DatabaseReference ORGANIZATION_REF = FirebaseDatabase.getInstance().getReference().child("organization");
     public static final DatabaseReference USER_REF = FirebaseDatabase.getInstance().getReference().child("user");
+    public static final DatabaseReference DONATION_REF =
+            FirebaseDatabase.getInstance()
+                    .getReference().child("donation");
 
     public static final StorageReference EVENT_SR = FirebaseStorage.getInstance().getReference("event");
     public static final StorageReference ORGANIZATION_SR = FirebaseStorage.getInstance().getReference("organization");
@@ -31,6 +34,7 @@ public class Config {
     public static final String ORGANIZATION_SESSION_ID = "organizationSessionId";
     public static final String LOGGED_IN_STATE = "loggedIn";
     public static final String MANAGEMENT_SESSION_ID = "managementSessionId";
+    public static final String DONATION_SESSION_ID = "donationSessionId";
 
     //use for AESCrypt
     public static final String ALGORITHM = "AES";

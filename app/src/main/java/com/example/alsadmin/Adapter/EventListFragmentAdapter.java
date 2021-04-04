@@ -79,6 +79,7 @@ public class EventListFragmentAdapter extends RecyclerView.Adapter<EventListFrag
             holder.eventListTitleTV.setText("-");
         }
 
+
         double fundProgress = (event.getEventCurrentAmount() / event.getEventTargetAmount()) * 100;
         //apply to the progress bar
         holder.eventListPB.setProgress((int) fundProgress);

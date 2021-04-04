@@ -39,5 +39,10 @@
     <string name="verify">Verify</string>
     <string name="other">Others</string>
     <string name="createAdmin">Create Admin</string>
+    <string name="publish">Publish</string>
+    <string name="donation">Donation</string>
+    <string name="download_as_pdf">Download As pdf</string>
+    <string name="uid">uid</string>
+    <string name="selectDonateAmount">Donate Amount</string>
 
 </resources>

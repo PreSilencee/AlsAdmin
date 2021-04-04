@@ -34,6 +34,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 
 public class EventViewActivity extends AppCompatActivity {
@@ -61,7 +66,7 @@ public class EventViewActivity extends AppCompatActivity {
     LinearLayout eventButtonViewLinearLayout;
 
     //button
-    Button eventAcceptBtn, eventDeclineBtn;
+    Button eventAcceptBtn, eventDeclineBtn, eventPublishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,7 @@ public class EventViewActivity extends AppCompatActivity {
         eventButtonViewLinearLayout = findViewById(R.id.buttonViewLinearLayout);
         eventAcceptBtn = findViewById(R.id.eventViewAcceptButton);
         eventDeclineBtn = findViewById(R.id.eventViewDeclineButton);
+        eventPublishBtn = findViewById(R.id.eventViewPublishButton);
 
 
         device = new Connectivity(getApplicationContext());
@@ -349,6 +355,37 @@ public class EventViewActivity extends AppCompatActivity {
                         eventButtonViewLinearLayout.setVisibility(View.GONE);
                     }
 
+                    if(eventStatusTV.getText().equals(Config.AVAILABLE)){
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+                        Date dateObj = Calendar.getInstance().getTime();
+                        Date currentDate = null;
+                        try {
+                            currentDate = simpleDateFormat.parse(simpleDateFormat.format(dateObj));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        try {
+                            Date eventStartDate = simpleDateFormat.parse(event.getEventStartDate());
+
+                            if((currentDate.compareTo(eventStartDate) < 0 && (currentDate.compareTo(eventStartDate) != 0))){
+                                eventPublishBtn.setVisibility(View.VISIBLE);
+                                eventPublishBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        advanceDateEvent(event);
+                                    }
+                                });
+                            }
+                            else{
+                                eventPublishBtn.setVisibility(View.GONE);
+                            }
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                 }
             }
         }
@@ -358,6 +395,25 @@ public class EventViewActivity extends AppCompatActivity {
             Log.d(TAG, "Database Error: "+error.getMessage());
         }
     };
+
+    private void advanceDateEvent(Event event){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+        Date dateObj = Calendar.getInstance().getTime();
+        String currentDate = simpleDateFormat.format(dateObj);
+
+        event.setEventStartDate(currentDate);
+        Map<String, Object> eventValues = event.eventMap();
+
+        Config.EVENT_REF.child(eventSessionId).updateChildren(eventValues).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Publish Event Successfully.", Toast.LENGTH_LONG).show();
+                    Config.EVENT_REF.child(eventSessionId).addListenerForSingleValueEvent(eventValueListener);
+                }
+            }
+        });
+    }
 
 
 }
